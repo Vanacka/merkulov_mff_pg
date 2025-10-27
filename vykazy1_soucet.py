@@ -1,7 +1,7 @@
 def is_valid(line) -> bool:
-    if line[0] != line[-2]:
-        return False
     if len(line) < 5:
+        return False
+    if line[0] != line[-2]:
         return False
     return True
 
@@ -11,7 +11,18 @@ def time2sec(time) -> int:
     return sec_time
 
 def sec2time(time):
-    return
+    seconds = time % 60
+    if seconds < 10:
+        seconds = "0" + str(seconds)
+    time = time // 60
+    minutes = time % 60
+    if minutes < 10:
+        minutes = "0" + str(minutes)
+    time = time // 60
+    hours = time
+
+    result = str(hours) + ":" + str(minutes) + ":" + str(seconds)
+    return result
 
 
 total_time = 0
